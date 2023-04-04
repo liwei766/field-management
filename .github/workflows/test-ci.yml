@@ -1,0 +1,17 @@
+name: E2E Test
+
+on:
+  schedule:
+    - cron: '35 * * * 1-5'   # UTC Time 20:15 , Tokyo Time 05:15
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically  
